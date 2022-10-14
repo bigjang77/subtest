@@ -10,9 +10,8 @@
 
           <div id="logo_info" class="form">
             <div class="btn_group">
-              <div class="subscribe_btn">
-                <button type="button" onclick="location.href='#'">구독</button>
-              </div>
+              <div>구독 <i id="iconSub"
+                  class='${detailDto.subed ? "fa-solid" : "fa-regular"} fa-heart my_pointer my_red'></i></div>
             </div>
             <!-- subscribe_btn -->
             <div class="logo_form">
@@ -33,7 +32,7 @@
                   <p class="basic_list_item">회사명</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.companyName}</span>
+                  <span>${detailDto.companyName}</span>
                 </div>
               </div>
               <div class="basic_row">
@@ -41,7 +40,7 @@
                   <p class="basic_list_item">설립년도</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.introBirth}</span>
+                  <span>${detailDto.introBirth}</span>
                 </div>
               </div>
               <div class="basic_row">
@@ -49,7 +48,7 @@
                   <p class="basic_list_item">주요업무</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.introTask}</span>
+                  <span>${detailDto.introTask}</span>
                 </div>
               </div>
               <div class="basic_row">
@@ -57,7 +56,7 @@
                   <p class="basic_list_item">평균연봉</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.introSal}</span>
+                  <span>${detailDto.introSal}</span>
                 </div>
               </div>
               <div class="basic_row">
@@ -65,7 +64,7 @@
                   <p class="basic_list_item">기업복지</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.introWellfare}</span>
+                  <span>${detailDto.introWellfare}</span>
                 </div>
               </div>
               <div class="basic_row">
@@ -73,7 +72,7 @@
                   <p class="basic_list_item">회사소개</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.introContent}</span>
+                  <span>${detailDto.introContent}</span>
                 </div>
               </div>
               <div class="basic_row">
@@ -81,7 +80,7 @@
                   <p class="basic_list_item">회사위치</p>
                 </div>
                 <div class="basic_input">
-                  <span>${intro.introLocation}</span>
+                  <span>${detailDto.introLocation}</span>
                 </div>
               </div>
 
@@ -94,7 +93,7 @@
               <h2 class="title">관심분야</h2>
             </div>
             <div class="field_form">
-              <p>${intro.jobName}</p>
+              <p>${detailDto.jobName}</p>
             </div>
           </div>
           <!-- field -->

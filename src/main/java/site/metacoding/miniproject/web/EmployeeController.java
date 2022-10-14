@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.miniproject.domain.employee.Employee;
 import site.metacoding.miniproject.domain.intro.Intro;
 import site.metacoding.miniproject.domain.resume.Resume;
+import site.metacoding.miniproject.domain.subscribe.Subscribe;
 import site.metacoding.miniproject.service.EmployeeService;
 import site.metacoding.miniproject.service.IntroService;
 import site.metacoding.miniproject.service.ResumeService;
@@ -92,8 +93,19 @@ public class EmployeeController {
         return "employee/coIntroDetail";
     }
 
-    // @PostMapping("/emp/companyIntroDetail/{introId}/subscribe")
-    // public @ResponseBody CMRespDto<?> insertSub(@PathVariable Integer)
+    @PostMapping("/emp/companyIntroDetail/{introId}/subscribe")
+    public @ResponseBody CMRespDto<?> insertSub(@PathVariable Integer introId) {
+        Employee principal = (Employee) session.getAttribute("principal");
+        Subscribe subscribe = new Subscribe(principal.getEmployeeId(), introId);
+        introService.구독하기(subscribe);
+        return new CMRespDto<>(1, "구독성공", subscribe);
+    }
+
+    @DeleteMapping("/emp/companyIntroDetail/{introId}/subscribe/{subscribeId}")
+    public @ResponseBody CMRespDto<?> deleteSub(@PathVariable Integer introId, @PathVariable Integer subscribeId) {
+        introService.구독취소하기(subscribeId);
+        return new CMRespDto<>(1, "구독취소성공", null);
+    }
 
     @GetMapping("/emp/companyList")
     public String companylist(Model model) {// 개인회원이 보는 기업소개 목록보기
