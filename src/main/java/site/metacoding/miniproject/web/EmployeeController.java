@@ -94,7 +94,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/emp/companyIntroDetail/{introId}/subscribe")
-    public @ResponseBody CMRespDto<?> insertSub(@PathVariable Integer introId) {
+    public @ResponseBody CMRespDto<?> insertSub(@PathVariable Integer introId) {// 구독하기
         Employee principal = (Employee) session.getAttribute("principal");
         Subscribe subscribe = new Subscribe(principal.getEmployeeId(), introId);
         introService.구독하기(subscribe);
@@ -102,7 +102,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/emp/companyIntroDetail/{introId}/subscribe/{subscribeId}")
-    public @ResponseBody CMRespDto<?> deleteSub(@PathVariable Integer introId, @PathVariable Integer subscribeId) {
+    public @ResponseBody CMRespDto<?> deleteSub(@PathVariable Integer introId, @PathVariable Integer subscribeId) {// 구독취소
         introService.구독취소하기(subscribeId);
         return new CMRespDto<>(1, "구독취소성공", null);
     }

@@ -133,6 +133,7 @@
             renderSub();
             $("#subscribeId").val(res.data.introId);
             console.log(res);
+            location.reload();
           } else {
             alert("구독을 실패했습니다");
           }

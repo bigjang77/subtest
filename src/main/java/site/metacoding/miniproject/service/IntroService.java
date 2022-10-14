@@ -39,4 +39,8 @@ public class IntroService {
     public void 구독취소하기(Integer subscribeId) {
         subscribeDao.deleteById(subscribeId);
     }
+
+    public Intro 기업소개수정상세보기(Integer companyId) {
+        return introDao.findById(companyId);
+    }
 }
