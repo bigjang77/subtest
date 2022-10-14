@@ -41,19 +41,25 @@
 
 	<delete id="deleteById"></delete>
 
+
+	<sql id="findByDetail"></sql>
+
 	<select id="findByDetail" resultType="site.metacoding.miniproject.web.dto.request.intro.DetailDto">
 		SELECT
 		i.*,
 		s.subscribe_id subscribeId,	
 		if(s.subscribe_id IS NULL, 0 ,1) isSubed,
 		j.job_name,
-		j.job_code
+		j.job_code,
+		c.company_name
 		FROM intro i
-		LEFT OUTER JOIN (SELECT * FROM subscribe WHERE employee_id = 1) s
+		LEFT OUTER JOIN (SELECT * FROM subscribe WHERE employee_id = #{principalId}) s
 		ON i.company_id = s.company_id
 		LEFT OUTER JOIN job j
 		ON i.job_id = j.job_id
-		WHERE i.intro_id = 1;
+		LEFT OUTER JOIN company c
+		ON i.company_id = c.company_id
+		WHERE i.intro_id = #{introId}
 	</select>
 
 </mapper>

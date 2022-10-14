@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.miniproject.domain.employee.Employee;
 import site.metacoding.miniproject.domain.employee.EmployeeDao;
-import site.metacoding.miniproject.domain.subscribe.Subscribe;
-import site.metacoding.miniproject.domain.subscribe.SubscribeDao;
 import site.metacoding.miniproject.web.dto.request.employee.EmployeeLoginDto;
 import site.metacoding.miniproject.web.dto.request.employee.EmployeeUpdateDto;
 
@@ -15,7 +13,6 @@ import site.metacoding.miniproject.web.dto.request.employee.EmployeeUpdateDto;
 public class EmployeeService {
 
     private final EmployeeDao employeeDao;
-    private final SubscribeDao subscribeDao;
 
     public void employeeDelete(Integer employeeId) {
         employeeDao.deleteById(employeeId);
@@ -44,7 +41,4 @@ public class EmployeeService {
         return null;
     }
 
-    public void 구독하기(Subscribe subscribe) {
-
-    }
 }

@@ -100,11 +100,11 @@ public class CompanyController {
         return "company/coIntroDetail";
     }
 
-    @GetMapping("/co/companyIntroUpdate/{companyId}")
-    public String getIntroUpdate(@PathVariable Integer companyId, Model model) {
-        model.addAttribute("intro", introService.기업소개상세보기(companyId));
-        return "company/coIntroUpdate";
-    }
+    // @GetMapping("/co/companyIntroUpdate/{companyId}")
+    // public String getIntroUpdate(@PathVariable Integer companyId, Model model) {
+    // model.addAttribute("intro", introService.기업소개상세보기(companyId));
+    // return "company/coIntroUpdate";
+    // }
 
     @PutMapping("/co/companyIntroUpdate/{companyId}/update")
     public @ResponseBody CMRespDto<?> putIntroUpdate(@PathVariable Integer companyId,

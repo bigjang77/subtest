@@ -83,9 +83,17 @@ public class EmployeeController {
 
     @GetMapping("/emp/companyIntroDetail/{introId}")
     public String introDetail(@PathVariable Integer introId, Model model) {// 개인회원 보는 기업소개 상세보기
-        model.addAttribute("intro", introService.기업소개상세보기(introId));
+        Employee principal = (Employee) session.getAttribute("principal");
+        if (principal == null) {
+            model.addAttribute("detailDto", introService.기업소개상세보기(introId, 0));
+        } else {
+            model.addAttribute("detailDto", introService.기업소개상세보기(introId, principal.getEmployeeId()));
+        }
         return "employee/coIntroDetail";
     }
+
+    // @PostMapping("/emp/companyIntroDetail/{introId}/subscribe")
+    // public @ResponseBody CMRespDto<?> insertSub(@PathVariable Integer)
 
     @GetMapping("/emp/companyList")
     public String companylist(Model model) {// 개인회원이 보는 기업소개 목록보기

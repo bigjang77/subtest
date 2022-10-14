@@ -4,7 +4,7 @@
 
 	<insert id="insert">
 		insert into subscribe(employee_id, company_id) 
-		VALUES(#{employeeId, #{companyId});
+		VALUES(#{employeeId}, #{companyId});
 	</insert>
 
 	<select id="findAll" resultType="site.metacoding.miniproject.domain.subscribe.Subscribe"></select>
