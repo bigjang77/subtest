@@ -8,9 +8,9 @@
       <div class="row">
         <div class="company_detail">
           <input id="introId" type="hidden" value="${detailDto.introId}" />
-          <span>번호${detailDto.introId}</span>
           <input id="subscribeId" type="hidden" value="${detailDto.subscribeId}" />
-          <span>구독번호${detailDto.subscribeId}</span>
+          <input id="principalId" type="hidden" value="${principal.getEmployeeId()}" />
+          <span>인증번호${principal.getEmployeeId()}</span>
           <div id="logo_info" class="form">
             <div>구독 <i id="iconSub"
                 class='${detailDto.subed ? "fa-solid" : "fa-regular"} fa-heart my_pointer my_red'></i>
@@ -109,14 +109,20 @@
     <script>
       //하트를 클릭햇을때 로직
       $("#iconSub").click(() => {
-        let isSubedState = $("#iconSub").hasClass("fa-solid");
-        console.log($("#introId").val());
-        console.log($("#subscribeId").val());
-        console.log("클릭함");
-        if (isSubedState) {
-          deleteSub();
+        let principalId = $("#principalId").val();
+        if (principalId == "") {
+          alert("로그인을하세요");
         } else {
-          insertSub();
+          let isSubedState = $("#iconSub").hasClass("fa-solid");
+          console.log($("#introId").val());
+          console.log($("#subscribeId").val());
+          console.log($("#principalId").val());
+          console.log("클릭함");
+          if (isSubedState) {
+            deleteSub();
+          } else {
+            insertSub();
+          }
         }
       });
 
@@ -133,7 +139,7 @@
             renderSub();
             $("#subscribeId").val(res.data.introId);
             console.log(res);
-            location.reload();
+            //location.reload();
           } else {
             alert("구독을 실패했습니다");
           }
