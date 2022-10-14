@@ -21,7 +21,7 @@ public class IntroService {
         return introDao.findAll();
     }
 
-    public DetailDto 기업소개상세보기(Integer companyId, Integer principalId) {
+    public DetailDto 기업소개상세보기(Integer companyId, Integer principalId) {// 개인이 보는 기업상세보기
         return introDao.findByDetail(companyId, principalId);
     }
 
@@ -40,7 +40,7 @@ public class IntroService {
         subscribeDao.deleteById(subscribeId);
     }
 
-    public Intro 기업소개수정상세보기(Integer companyId) {
+    public Intro 기업소개수정상세보기(Integer companyId) {// 기업이 보는 마이페이지
         return introDao.findById(companyId);
     }
 }
