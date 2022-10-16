@@ -101,6 +101,15 @@ create table application(
     notice_id INT NOT null,
     created_at TIMESTAMP NOT null
 );
+
+CREATE TABLE alarm (
+  alarm_id int auto_increment PRIMARY KEY,
+  employee_id INT,
+  company_id INT,
+  subscribe_id int,
+  alarm_message VARCHAR (256)
+);
+
 ```
 
 ### 더미데이터 추가
